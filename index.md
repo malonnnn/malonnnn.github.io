@@ -1,3 +1,3 @@
 Superhero Proofs
 <br /><br />
-<a href="./superman.html">Superman</a>
+<a href="./superman.txt">Superman</a>
