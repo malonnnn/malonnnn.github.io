@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Hawthorne & Miles, PLLC — Law Office</title>
+  <meta name="description" content="Hawthorne & Miles, PLLC — Boutique legal practice. This site is a simple business card with essential contact details.">
+  <style>
+    :root{
+      --bg:#0f1720;          /* deep navy */
+      --card:#101925;
+      --text:#dbe7f3;
+      --muted:#a8b6c6;
+      --line: color-mix(in srgb, var(--text), transparent 82%);
+      --gold:#d4a017;        /* subtle legal accent */
+      --radius:18px;
+      --shadow:0 12px 36px rgba(0,0,0,.45);
+    }
+    html.light{
+      --bg:#f6f8fb; --card:#ffffff; --text:#10161f; --muted:#546170; --line:#e5e9f0; --shadow:0 10px 24px rgba(16,24,40,.10);
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif; background:radial-gradient(900px 500px at 110% -20%, rgba(212,160,23,.20), transparent 60%), linear-gradient(180deg, var(--bg), #0b121b); color:var(--text); min-height:100svh; display:grid; place-items:center;}
+    .card{width:min(860px,92%); background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:clamp(1.2rem,4vw,2rem);}
+    .row{display:flex; gap:clamp(1rem,3vw,2rem); align-items:center;}
+    .logo{flex:0 0 86px; height:86px; border-radius:16px; display:grid; place-items:center; background: linear-gradient(135deg, var(--gold), color-mix(in srgb, var(--gold), white 20%)); color:#0e141a; box-shadow:var(--shadow)}
+    h1{font-size:clamp(1.6rem,3.2vw,2.2rem); line-height:1.1; margin:.2rem 0 0}
+    .tag{color:var(--muted); font-size:1rem; margin:.25rem 0 .8rem}
+    .grid{display:grid; gap:.75rem; grid-template-columns:1fr 1fr;}
+    .k{color:var(--muted); width:11ch;}
+    a{color:inherit; text-decoration:none}
+    a:hover{ text-decoration:underline }
+    hr{border:0; height:1px; background:var(--line); margin:1rem 0}
+    .muted{color:var(--muted)}
+    .actions{display:flex; gap:.6rem; flex-wrap:wrap}
+    .btn{appearance:none; border:1px solid var(--line); background:transparent; color:inherit; border-radius:12px; padding:.65rem .9rem; cursor:pointer}
+    .btn.primary{background:var(--gold); color:#0e141a; border-color:transparent; font-weight:700}
+    footer{margin-top:1rem; font-size:.92rem; color:var(--muted)}
+    .sep{opacity:.6; margin:0 .35rem}
+    @media (max-width:700px){ .grid{grid-template-columns:1fr} .row{align-items:flex-start} .k{width:auto} }
+  </style>
+</head>
+<body>
+  <main class="card" aria-label="Business card for Hawthorne & Miles, PLLC">
+    <div class="row">
+      <div class="logo" aria-hidden="true" title="Scales of Justice">⚖️</div>
+      <div>
+        <h1>Hawthorne & Miles, PLLC</h1>
+        <div class="tag">Boutique Legal Practice • State & Federal Courts</div>
+        <div class="grid" role="list">
+          <div><span class="k">Attorneys</span> Ava Hawthorne, Esq. • Marcus Miles, Esq.</div>
+          <div><span class="k">Focus</span> Personal Injury • Criminal Defense • Family Law</div>
+          <div><span class="k">Phone</span> <a href="tel:+15551234567">(555) 123‑4567</a></div>
+          <div><span class="k">Email</span> <a href="mailto:intake@examplelaw.com">intake@examplelaw.com</a></div>
+          <div><span class="k">Office</span> 123 Justice Ave, Suite 400, Riverton, ST 12345</div>
+          <div><span class="k">Hours</span> Mon–Fri 8:30–5:30 • 24/7 Intake</div>
+        </div>
+        <hr>
+        <div class="actions">
+          <a class="btn primary" href="tel:+15551234567">Call Now</a>
+          <a class="btn" href="mailto:intake@examplelaw.com?subject=Consultation">Email</a>
+          <a class="btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=123+Justice+Ave+Riverton+ST+12345">Map</a>
+          <button id="saveVcf" class="btn" type="button">Save vCard</button>
+          <button id="theme" class="btn" type="button" aria-pressed="false">Theme</button>
+        </div>
+        <footer>
+          Bar admissions: ST; U.S. District Court (ST). <span class="sep">•</span> This site is attorney advertising. No legal advice.
+        </footer>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Minimal theme toggle
+    (function(){
+      const btn = document.getElementById('theme');
+      const html = document.documentElement;
+      const saved = localStorage.getItem('theme');
+      if (saved === 'light') html.classList.add('light');
+      function upd(){ btn?.setAttribute('aria-pressed', html.classList.contains('light') ? 'true' : 'false'); }
+      btn?.addEventListener('click', ()=>{ html.classList.toggle('light'); localStorage.setItem('theme', html.classList.contains('light') ? 'light' : 'dark'); upd(); });
+      upd();
+    })();
+
+    // Generate a simple vCard on the fly
+    (function(){
+      const btn = document.getElementById('saveVcf');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const v = [
+          'BEGIN:VCARD', 'VERSION:3.0',
+          'N:Hawthorne;Ava;;;',
+          'FN:Hawthorne & Miles, PLLC',
+          'ORG:Hawthorne & Miles, PLLC',
+          'TITLE:Attorney at Law',
+          'TEL;TYPE=WORK,VOICE:+1-555-123-4567',
+          'EMAIL;TYPE=INTERNET:intake@examplelaw.com',
+          'ADR;TYPE=WORK:;;123 Justice Ave;Riverton;ST;12345;USA',
+          'URL:https://examplelaw.com',
+          'END:VCARD' ].join('
+');
+        const blob = new Blob([v], { type: 'text/vcard' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'Hawthorne-Miles.vcf';
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(()=>URL.revokeObjectURL(a.href), 1500);
+      });
+    })();
+  </script>
+</body>
+</html>
