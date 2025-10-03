@@ -1,113 +1,161 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="light dark" />
-  <title>Hawthorne & Miles, PLLC — Law Office</title>
-  <meta name="description" content="Hawthorne & Miles, PLLC — Boutique legal practice. This site is a simple business card with essential contact details.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Smith & Associates Law Firm</title>
+  <link
+    href="https://fonts.googleapis.com/css?family=Merriweather:400,700|Roboto:300,400&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Font Awesome for lawyer icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pEcU8GrgftJA8XGuAjh+2E9Zz6s8+MZP3sq0Q5hYJSbE0fEN9zE3p8r4QlO05jZZjg6TvY6JyXQd8zWZ0Q/mAQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <style>
-    :root{
-      --bg:#0f1720;          /* deep navy */
-      --card:#101925;
-      --text:#dbe7f3;
-      --muted:#a8b6c6;
-      --line: color-mix(in srgb, var(--text), transparent 82%);
-      --gold:#d4a017;        /* subtle legal accent */
-      --radius:18px;
-      --shadow:0 12px 36px rgba(0,0,0,.45);
+    /* (…existing CSS from before…) */
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Roboto',sans-serif;color:#333;line-height:1.6;}
+    header{background:#002b5c;color:#fff;position:fixed;width:100%;top:0;z-index:100;padding:1rem 2rem;}
+    .header-container{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;}
+    .logo{font-family:'Merriweather',serif;font-size:1.5rem;font-weight:700;}
+    nav ul{display:flex;list-style:none;}
+    nav li+li{margin-left:1.5rem;}
+    nav a{color:#fff;text-decoration:none;font-weight:500;}
+    .hero{margin-top:70px;background:url('https://source.unsplash.com/1600x900/?law,justice') center/cover no-repeat;height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 2rem;}
+    .hero h1{font-family:'Merriweather',serif;font-size:3rem;color:#fff;margin-bottom:.5rem;}
+    .hero p{font-size:1.2rem;color:#dfefff;}
+    .section{padding:4rem 2rem;max-width:1200px;margin:auto;}
+    .section-title{font-family:'Merriweather',serif;font-size:2rem;text-align:center;color:#002b5c;margin-bottom:1.5rem;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;}
+    .card{background:#f9f9f9;padding:2rem;border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,0.1);}
+    .card h3{margin-top:0;font-family:'Merriweather',serif;color:#002b5c;margin-bottom:.5rem;}
+    .contact-form{max-width:600px;margin:auto;}
+    .contact-form input,
+    .contact-form textarea{width:100%;padding:.75rem;margin-bottom:1rem;border:1px solid #ccc;border-radius:4px;font-size:1rem;}
+    .contact-form button{background:#002b5c;color:#fff;border:none;padding:.75rem 1.5rem;border-radius:4px;cursor:pointer;font-size:1rem;}
+    footer{background:#072144;color:#fff;text-align:center;padding:2rem 1rem;margin-top:2rem;}
+    footer p+ p{margin-top:.5rem;}
+    @media(max-width:600px){
+      .hero h1{font-size:2.2rem;}
+      nav ul{flex-direction:column;}
+      nav li+li{margin-left:0;margin-top:.75rem;}
     }
-    html.light{
-      --bg:#f6f8fb; --card:#ffffff; --text:#10161f; --muted:#546170; --line:#e5e9f0; --shadow:0 10px 24px rgba(16,24,40,.10);
+
+    /* ─── NEW: Decorative lawyer icons ─── */
+    .decor-icons {
+      position: absolute;
+      top: 80px;
+      right: 20px;
+      display: flex;
+      gap: 1rem;
+      z-index: 50;
     }
-    *{box-sizing:border-box}
-    body{margin:0; font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif; background:radial-gradient(900px 500px at 110% -20%, rgba(212,160,23,.20), transparent 60%), linear-gradient(180deg, var(--bg), #0b121b); color:var(--text); min-height:100svh; display:grid; place-items:center;}
-    .card{width:min(860px,92%); background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:clamp(1.2rem,4vw,2rem);}
-    .row{display:flex; gap:clamp(1rem,3vw,2rem); align-items:center;}
-    .logo{flex:0 0 86px; height:86px; border-radius:16px; display:grid; place-items:center; background: linear-gradient(135deg, var(--gold), color-mix(in srgb, var(--gold), white 20%)); color:#0e141a; box-shadow:var(--shadow)}
-    h1{font-size:clamp(1.6rem,3.2vw,2.2rem); line-height:1.1; margin:.2rem 0 0}
-    .tag{color:var(--muted); font-size:1rem; margin:.25rem 0 .8rem}
-    .grid{display:grid; gap:.75rem; grid-template-columns:1fr 1fr;}
-    .k{color:var(--muted); width:11ch;}
-    a{color:inherit; text-decoration:none}
-    a:hover{ text-decoration:underline }
-    hr{border:0; height:1px; background:var(--line); margin:1rem 0}
-    .muted{color:var(--muted)}
-    .actions{display:flex; gap:.6rem; flex-wrap:wrap}
-    .btn{appearance:none; border:1px solid var(--line); background:transparent; color:inherit; border-radius:12px; padding:.65rem .9rem; cursor:pointer}
-    .btn.primary{background:var(--gold); color:#0e141a; border-color:transparent; font-weight:700}
-    footer{margin-top:1rem; font-size:.92rem; color:var(--muted)}
-    .sep{opacity:.6; margin:0 .35rem}
-    @media (max-width:700px){ .grid{grid-template-columns:1fr} .row{align-items:flex-start} .k{width:auto} }
+    .decor-icons i {
+      font-size: 2.5rem;
+      color: rgba(255,255,255,0.7);
+      transform: rotate(-10deg);
+      transition: transform .3s ease;
+    }
+    .decor-icons i:hover {
+      transform: rotate(0deg) scale(1.1);
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0) rotate(-10deg); }
+      50% { transform: translateY(-8px) rotate(-10deg); }
+    }
   </style>
 </head>
 <body>
-  <main class="card" aria-label="Business card for Hawthorne & Miles, PLLC">
-    <div class="row">
-      <div class="logo" aria-hidden="true" title="Scales of Justice">⚖️</div>
-      <div>
-        <h1>Hawthorne & Miles, PLLC</h1>
-        <div class="tag">Boutique Legal Practice • State & Federal Courts</div>
-        <div class="grid" role="list">
-          <div><span class="k">Attorneys</span> Ava Hawthorne, Esq. • Marcus Miles, Esq.</div>
-          <div><span class="k">Focus</span> Personal Injury • Criminal Defense • Family Law</div>
-          <div><span class="k">Phone</span> <a href="tel:+15551234567">(555) 123‑4567</a></div>
-          <div><span class="k">Email</span> <a href="mailto:intake@examplelaw.com">intake@examplelaw.com</a></div>
-          <div><span class="k">Office</span> 123 Justice Ave, Suite 400, Riverton, ST 12345</div>
-          <div><span class="k">Hours</span> Mon–Fri 8:30–5:30 • 24/7 Intake</div>
-        </div>
-        <hr>
-        <div class="actions">
-          <a class="btn primary" href="tel:+15551234567">Call Now</a>
-          <a class="btn" href="mailto:intake@examplelaw.com?subject=Consultation">Email</a>
-          <a class="btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=123+Justice+Ave+Riverton+ST+12345">Map</a>
-          <button id="saveVcf" class="btn" type="button">Save vCard</button>
-          <button id="theme" class="btn" type="button" aria-pressed="false">Theme</button>
-        </div>
-        <footer>
-          Bar admissions: ST; U.S. District Court (ST). <span class="sep">•</span> This site is attorney advertising. No legal advice.
-        </footer>
-      </div>
+
+  <header>
+    <div class="header-container">
+      <div class="logo">Smith & Associates</div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#practice">Practice Areas</a></li>
+          <li><a href="#attorneys">Attorneys</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-  </main>
+  </header>
+
+  <section class="hero" id="home">
+    <div>
+      <h1>Protecting Your Rights, Championing Your Cause</h1>
+      <p>Expert legal representation in personal injury, family law, and estate planning.</p>
+    </div>
+    <!-- Decorative icons injected by JavaScript -->
+    <div class="decor-icons"></div>
+  </section>
+
+  <section class="section" id="about">
+    <h2 class="section-title">About Us</h2>
+    <p>
+      At Smith & Associates, our mission is to provide top-tier legal services with compassion and integrity.
+      With over 25 years of combined experience, our team is dedicated to achieving the best outcomes for our clients.
+    </p>
+  </section>
+
+  <section class="section" id="practice">
+    <h2 class="section-title">Practice Areas</h2>
+    <div class="grid">
+      <div class="card"><h3>Personal Injury</h3><p>Recovering compensation for accident victims and their families.</p></div>
+      <div class="card"><h3>Family Law</h3><p>Guiding you through divorce, custody, and support matters.</p></div>
+      <div class="card"><h3>Estate Planning</h3><p>Crafting wills, trusts, and estate strategies to protect your legacy.</p></div>
+      <div class="card"><h3>Criminal Defense</h3><p>Defending your rights at every stage of the criminal justice process.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="attorneys">
+    <h2 class="section-title">Our Attorneys</h2>
+    <div class="grid">
+      <div class="card"><h3>Jane Smith</h3><p>Lead Attorney with 15 years of litigation experience.</p></div>
+      <div class="card"><h3>John Doe</h3><p>Specialist in family law and mediation.</p></div>
+      <div class="card"><h3>Emily Johnson</h3><p>Expert in estate planning and probate.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Smith & Associates Law Firm | (555) 123-4567 | 123 Main St, Anytown, USA</p>
+    <p>&copy; 2025 Smith & Associates. All rights reserved.</p>
+  </footer>
 
   <script>
-    // Minimal theme toggle
-    (function(){
-      const btn = document.getElementById('theme');
-      const html = document.documentElement;
-      const saved = localStorage.getItem('theme');
-      if (saved === 'light') html.classList.add('light');
-      function upd(){ btn?.setAttribute('aria-pressed', html.classList.contains('light') ? 'true' : 'false'); }
-      btn?.addEventListener('click', ()=>{ html.classList.toggle('light'); localStorage.setItem('theme', html.classList.contains('light') ? 'light' : 'dark'); upd(); });
-      upd();
-    })();
+    // inject lawyer-themed icons into the hero section
+    const icons = ['fa-balance-scale', 'fa-gavel', 'fa-book'];
+    const container = document.querySelector('.decor-icons');
+    icons.forEach((cls, i) => {
+      const el = document.createElement('i');
+      el.classList.add('fas', cls);
+      // staggered float animation
+      el.style.animation = `float 4s ease-in-out ${i * 1.2}s infinite`;
+      container.appendChild(el);
+    });
 
-    // Generate a simple vCard on the fly
-    (function(){
-      const btn = document.getElementById('saveVcf');
-      if (!btn) return;
-      btn.addEventListener('click', () => {
-        const v = [
-          'BEGIN:VCARD', 'VERSION:3.0',
-          'N:Hawthorne;Ava;;;',
-          'FN:Hawthorne & Miles, PLLC',
-          'ORG:Hawthorne & Miles, PLLC',
-          'TITLE:Attorney at Law',
-          'TEL;TYPE=WORK,VOICE:+1-555-123-4567',
-          'EMAIL;TYPE=INTERNET:intake@examplelaw.com',
-          'ADR;TYPE=WORK:;;123 Justice Ave;Riverton;ST;12345;USA',
-          'URL:https://examplelaw.com',
-          'END:VCARD' ].join('
-');
-        const blob = new Blob([v], { type: 'text/vcard' });
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = 'Hawthorne-Miles.vcf';
-        document.body.appendChild(a); a.click(); a.remove();
-        setTimeout(()=>URL.revokeObjectURL(a.href), 1500);
-      });
-    })();
+    // contact form handler
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for contacting us! We will be in touch shortly.');
+      this.reset();
+    });
   </script>
 </body>
 </html>
